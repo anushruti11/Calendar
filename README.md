@@ -7,7 +7,5 @@
 
 
 
-![1](https://user-images.githubusercontent.com/65386044/90219030-d579b900-de22-11ea-8b29-24cb03925862.jpeg)
-![4](https://user-images.githubusercontent.com/65386044/90219037-d7437c80-de22-11ea-83bc-95206774354f.jpeg)
-![3](https://user-images.githubusercontent.com/65386044/90219040-d874a980-de22-11ea-9b0b-435a711941bd.jpeg)
-![2](https://user-images.githubusercontent.com/65386044/90219041-d90d4000-de22-11ea-9d43-33ec204b7221.jpeg)
+
+

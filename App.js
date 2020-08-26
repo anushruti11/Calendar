@@ -1,10 +1,11 @@
-//Example to add event in Device Calendar
+//to add event in Device Calendar
 import React, { Component } from 'react';
 //Import React
 import {
   StyleSheet,
   Text,
   View,
+  Linking,
   Button,
   TextInput,
   TouchableOpacity,
@@ -13,9 +14,8 @@ import {
 import * as AddCalendarEvent from 'react-native-add-calendar-event';
 //Import library for AddCalendarEvent
 import moment from 'moment';
-//Import moment.js to deal with time
 
-const EVENT_TITLE = 'Lunch';
+const EVENT_TITLE = 'Meeting';
 const TIME_NOW_IN_UTC = moment.utc();
 
 const utcDateToString = (momentInUTC: moment): string => {
@@ -28,13 +28,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{ fontSize: 20, textAlign: 'center', marginVertical: 10 }}>
-          Example to Add Event in Google Calendar from React Native App
-        </Text>
         <Text style={styles.heading}>
           Event title: {EVENT_TITLE}
           {'\n'}
-          Event Date Time:{' '}
+           Date & Time:{' '}
           {moment
             .utc(TIME_NOW_IN_UTC)
             .local()
@@ -45,11 +42,11 @@ export default class App extends Component {
           onPress={() => {
             App.addToCalendar(EVENT_TITLE, TIME_NOW_IN_UTC);
           }}>
-          <Text>Add Event to Calendar</Text>
+          <Text>Add Event to Calender</Text>
         </TouchableOpacity>
         <TextInput
           style={styles.input}
-          placeholder="enter event id"
+          placeholder="ENTER EVENT ID"
           onChangeText={text => this.setState({ text })}
           value={this.state.text}
         />
@@ -69,7 +66,15 @@ export default class App extends Component {
             }}>
             <Text style={{ textAlign: 'center' }}>View Event</Text>
           </TouchableOpacity>
-        </View>
+          </View>
+          <TouchableOpacity
+          style={styles.button}
+          onPress={() =>
+            Linking.openURL('https://calendar.google.com/calendar')
+          }>
+          <Text style={{ textAlign: 'center' }}> View all Events</Text>
+        </TouchableOpacity>
+        
       </View>
     );
   }
@@ -80,7 +85,7 @@ export default class App extends Component {
       title,
       startDate: utcDateToString(startDateUTC),
       endDate: utcDateToString(moment.utc(startDateUTC).add(1, 'hours')),
-      notes: 'tasty!',
+
       navigationBarIOS: {
         tintColor: 'orange',
         backgroundColor: 'green',
@@ -159,7 +164,7 @@ const styles = StyleSheet.create({
   },
   buttonHalf: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: '#98fb98',
     padding: 10,
     flex: 1,
   },
@@ -169,6 +174,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 30,
     padding: 10,
-    backgroundColor: '#ffe6e6',
-  }
+    fontWeight:'bold',
+    backgroundColor: '#b0e0e6',
+  },
 });
